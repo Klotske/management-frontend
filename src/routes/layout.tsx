@@ -3,9 +3,9 @@ import Topbar from "../components/Topbar"
 
 const Layout = () => {
     return(
-        <div className="relative flex flex-col w-full h-full min-h-screen">
+        <div className="flex flex-col w-full h-full">
             <Topbar />
-            <div className="relative flex flex-1 w-full justify-center items-center">
+            <div className="flex flex-grow w-full items-center justify-center overflow-hidden">
                 <Outlet />
             </div>
         </div>

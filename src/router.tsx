@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import Layout from "./routes/layout"
+import PositionsPage from "./routes/positions"
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -7,7 +8,7 @@ const Router = createBrowserRouter([
     children: [
       {
         path: 'positions',
-        element: <div>Positions</div>
+        element: <PositionsPage />
       },
       {
         path: 'departments',
