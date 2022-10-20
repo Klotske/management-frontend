@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 
 const Topbar = () => {
     return (
-        <header className="relative flex flex-0 h-16">
+        <header className="relative flex flex-none h-16">
             <nav className="flex w-full justify-around items-center">
                 <NavLink to="departments">
                     Отделы
