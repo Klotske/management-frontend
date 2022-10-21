@@ -26,4 +26,21 @@ interface ISchedule {
     quantity: number
 }
 
-export type { IPosition, IDepartment, IRate, ISchedule }
+interface IReport {
+    start: string,
+    end: string,
+    months: IReportMonth[]
+}
+
+interface IReportMonth {
+    start: string,
+    end: string,
+    departments: IReportDepartment[]
+}
+
+interface IReportDepartment {
+    department: IDepartment,
+    monthTotal: number
+}
+
+export type { IPosition, IDepartment, IRate, ISchedule, IReport, IReportMonth, IReportDepartment }
