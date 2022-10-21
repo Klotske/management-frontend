@@ -127,7 +127,7 @@ const SchedulesPage = () => {
                     </div>
                     <div>
                         <label className="block text-sm font-medium">Кол-во сотрудников</label>
-                        <input type='number' className="bg-gray-100 border rounded block w-full p-2" {...register("quantity", {required: true})} placeholder="10000" required></input>
+                        <input type='number' className="bg-gray-100 border rounded block w-full p-2" {...register("quantity", {required: true})} placeholder="10" required></input>
                     </div>
                     <button type="submit" className="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-1 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Добавить</button>
                 </form>
