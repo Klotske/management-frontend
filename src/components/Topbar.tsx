@@ -4,23 +4,26 @@ const Topbar = () => {
     return (
         <header className="relative flex flex-none h-16">
             <nav className="flex w-full justify-around items-center">
-                <NavLink to="departments">
-                    Отделы
-                </NavLink>
-                <NavLink to="positions">
-                    Позиции
-                </NavLink>
-                <NavLink to="rates">
-                    Ставки
-                </NavLink>
-                <NavLink to="schedules">
-                    Расписания
-                </NavLink>
-                <NavLink to="report">
-                    Отчет
-                </NavLink>
+                <TopbarLink href="departments" text="Отделы" />
+                <TopbarLink href="positions" text="Должности" />
+                <TopbarLink href="rates" text="Ставки" />
+                <TopbarLink href="schedules" text="Расписания" />
+                <TopbarLink href="report" text="Очет" />
             </nav>
         </header>
+    )
+}
+
+type TopbarLinkProps = {
+    href: string,
+    text: string
+}
+
+const TopbarLink = ({ href, text }: TopbarLinkProps) => {
+    return (
+        <NavLink to={href} className={({ isActive }) => isActive ? "font-bold" : ""}>
+            {text}
+        </NavLink>
     )
 }
 
