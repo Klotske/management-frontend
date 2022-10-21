@@ -3,6 +3,7 @@ import DepartmentsPage from "./routes/departments"
 import Layout from "./routes/layout"
 import PositionsPage from "./routes/positions"
 import RatesPage from "./routes/rates"
+import SchedulesPage from "./routes/schedules"
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -22,7 +23,7 @@ const Router = createBrowserRouter([
       },
       {
         path: 'schedules',
-        element: <div>Schedules</div>
+        element: <SchedulesPage />
       },
       {
         path: 'report',
