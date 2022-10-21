@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Form, Input, Label, Submit } from "../components/form";
-import { IReport, IReportDepartment, IReportMonth } from "../models";
+import { IReport, IReportDepartment, IReportMonth } from "../data/models";
 
 interface ReportInput {
     startDate: string,
@@ -61,7 +61,7 @@ const ReportPage = () => {
                                 <Label text="Дата конца периода" />
                                 <Input type="date" {...register("endDate", { required: true })} required />
                             </div>
-                            <Submit text="Добавить" />
+                            <Submit text="Загрузить" />
                         </>
                     )}
                 </Form>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Form, Input, Label, Submit } from "../components/form";
-import { IDepartment } from "../models";
+import { IDepartment } from "../data/models";
 
 interface DepartmentInput {
     name: string

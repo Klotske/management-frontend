@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Form, Input, Label, Select, Submit } from "../components/form";
-import { IPosition, IDepartment, ISchedule } from "../models";
+import { useApi } from "../data/api";
+import { IPosition, IDepartment, ISchedule } from "../data/models";
 
 interface ScheduleInput {
     departmentId: number,

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Form, Input, Label, Submit } from "../components/form";
-import { IPosition } from "../models";
+import { IPosition } from "../data/models";
 
 interface PositionInput {
     title: string

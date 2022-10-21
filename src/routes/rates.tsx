@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Form, Input, Label, Select, Submit } from "../components/form";
-import { IPosition, IRate } from "../models";
+import { IPosition, IRate } from "../data/models";
 
 interface RateInput {
     positionId: number,
