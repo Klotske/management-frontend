@@ -37,8 +37,8 @@ const PositionsPage = () => {
     }, []);
 
     return (
-        <div className="w-full h-full grid grid-cols-3 grid-rows-1 gap-4 p-4 bg-gray-200 rounded-2xl">
-            <div className="block p-4 col-span-2 row-end-auto bg-white rounded-2xl overflow-y-auto">
+        <div className="w-full h-full grid grid-cols-4 grid-rows-1 gap-4 p-4 bg-gray-200 rounded-xl">
+            <div className="block p-4 col-span-3 row-end-auto bg-white rounded-xl overflow-y-auto">
                 <table className="w-full text-sm text-left rounded bg-gray-100">
                     <thead className="text-base capitalize bg-gray-50 rounded-xl">
                         <tr>
@@ -63,15 +63,15 @@ const PositionsPage = () => {
                 </table>
             </div>
 
-            <div className="flex row-end-auto bg-white rounded-2xl p-4 overflow-y-auto h-fit">
-                <form onSubmit={onSubmit} className="flex flex-grow flex-col justify-between w-full h-full px-2 space-y-6">
+            <div className="flex row-end-auto bg-white rounded-xl p-4 overflow-y-auto h-fit">
+                <form onSubmit={onSubmit} className="flex flex-grow flex-col justify-between w-full h-full p-2 space-y-6">
                     <h4 className="font-semibold text-lg">Добавить позицию</h4>
                     <div>
                         <label className="block text-sm font-medium">Название позиции</label>
                         <input className="bg-gray-100 border rounded block w-full p-2" {...register("title", {required: true})} placeholder="Программист" required></input>
                     </div>
 
-                    <button type="submit" className="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-1 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Добавить позицию</button>
+                    <button type="submit" className="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-1 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Добавить</button>
                 </form>
             </div>
         </div>

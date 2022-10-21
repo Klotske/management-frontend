@@ -60,12 +60,11 @@ const RatesPage = () => {
     }, []);
 
     return (
-        <div className="w-full h-full grid grid-cols-3 grid-rows-1 gap-4 p-4 bg-gray-200 rounded-xl">
-            <div className="block p-4 col-span-2 row-end-auto bg-white rounded-xl overflow-y-auto">
+        <div className="w-full h-full grid grid-cols-4 grid-rows-1 gap-4 p-4 bg-gray-200 rounded-xl">
+            <div className="block p-4 col-span-3 row-end-auto bg-white rounded-xl overflow-y-auto">
                 <table className="w-full text-sm text-left rounded bg-gray-100">
                     <thead className="text-base capitalize bg-gray-50 rounded-xl">
                         <tr>
-                            <th scope="col" className="py-3 px-6">ID</th>
                             <th scope="col" className="py-3 px-6">Название должности</th>
                             <th scope="col" className="py-3 px-6">Дата начала действия</th>
                             <th scope="col" className="py-3 px-6">Ставка</th>
@@ -75,7 +74,6 @@ const RatesPage = () => {
                     <tbody>
                         {rates.map((rate: IRate) => (
                             <tr key={rate.id} className="text-base">
-                                <td className="py-4 px-6">{rate.id}</td>
                                 <td className="py-4 px-6">{rate.position!.title}</td>
                                 <td className="py-4 px-6">{rate.startDate}</td>
                                 <td className="py-4 px-6">{rate.amount}</td>
@@ -110,7 +108,7 @@ const RatesPage = () => {
                         <label className="block text-sm font-medium">Ставка в месяц</label>
                         <input type='number' className="bg-gray-100 border rounded block w-full p-2" {...register("amount", {required: true})} placeholder="10000" required></input>
                     </div>
-                    <button type="submit" className="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-1 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Добавить ставку</button>
+                    <button type="submit" className="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-1 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Добавить</button>
                 </form>
             </div> 
         </div>
