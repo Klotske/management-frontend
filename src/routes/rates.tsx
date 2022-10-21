@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Form, Input, Label, Select, Submit } from "../components/form";
 import { IPosition, IRate } from "../models";
 
 interface RateInput {
@@ -14,7 +15,7 @@ const RatesPage = () => {
 
     const { register, handleSubmit } = useForm<RateInput>()
 
-    const onSubmit = handleSubmit((data) => {
+    const onSubmit = (data: RateInput) => {
         fetch('api/rates', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
             .then((response) => {
                 if (!response.ok) return;
@@ -25,11 +26,10 @@ const RatesPage = () => {
             )
             )))
             .catch(err => console.log(err));
-    })
+    }
 
-    const onDelete = (id: number) => 
-    {
-        fetch(`api/rates/${id}`, {method: 'DELETE'})
+    const onDelete = (id: number) => {
+        fetch(`api/rates/${id}`, { method: 'DELETE' })
             .then((response) => {
                 if (!response.ok) return;
                 setRates(rates.filter((rate) => {
@@ -89,28 +89,28 @@ const RatesPage = () => {
             </div>
 
             <div className="flex bg-white rounded-xl p-4 h-fit max-h-full overflow-y-auto">
-                <form onSubmit={onSubmit} className="space-y-6 w-full h-full p-2">
-                    <h4 className="font-semibold text-lg">Добавить ставку</h4>
-                    <div>
-                        <label className="block text-sm font-medium">Позиция</label>
-                        <select className="bg-gray-100 border rounded block w-full p-2" {...register("positionId", {required: true})} required>
-                            <option></option>
-                            {positions.map(pos => (
-                                <option key={pos.id} value={pos.id}>{pos.title}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium">Дата начала действия</label>
-                        <input type='date' className="bg-gray-100 border rounded block w-full p-2" {...register("startDate", {required: true})} required></input>
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium">Ставка в месяц</label>
-                        <input type='number' className="bg-gray-100 border rounded block w-full p-2" {...register("amount", {required: true})} placeholder="10000" required></input>
-                    </div>
-                    <button type="submit" className="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-1 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Добавить</button>
-                </form>
-            </div> 
+                <Form onSubmit={onSubmit}>
+                    {({ register }) => (
+                        <>
+                            <h4 className="font-semibold text-lg">Добавить ставку</h4>
+                            <div>
+                                <Label text="Позиция" />
+                                <Select {...register('positionId', { required: true })} options={
+                                    positions.map(((pos) => ({ value: pos.id, label: pos.title })))} />
+                            </div>
+                            <div>
+                                <Label text="Дата начала действия" />
+                                <Input type="date" {...register("startDate", { required: true })} required />
+                            </div>
+                            <div>
+                                <Label text="Ставка в месяц" />
+                                <Input type="number" {...register("amount", { required: true })} required />
+                            </div>
+                            <Submit text="Добавить" />
+                        </>
+                    )}
+                </Form>
+            </div>
         </div>
     )
 }
