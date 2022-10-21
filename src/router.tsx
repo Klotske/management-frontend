@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom"
+import DepartmentsPage from "./routes/departments"
 import Layout from "./routes/layout"
 import PositionsPage from "./routes/positions"
 const Router = createBrowserRouter([
@@ -12,7 +13,7 @@ const Router = createBrowserRouter([
       },
       {
         path: 'departments',
-        element: <div>Departments</div>
+        element: <DepartmentsPage />
       },
       {
         path: 'rates',
