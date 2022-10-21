@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Form, Input, Label, Submit } from "../components/form";
 import { IDepartment } from "../models";
 
 interface DepartmentInput {
@@ -10,16 +11,15 @@ const DepartmentsPage = () => {
     const [departments, setDepartments] = useState<IDepartment[]>([]);
     const { register, handleSubmit } = useForm<DepartmentInput>()
 
-    const onSubmit = handleSubmit((data) => {
+    const onSubmit = (data: DepartmentInput) => {
         fetch('api/departments', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
             .then(res => res.json())
             .then(dep => setDepartments([...departments, dep]))
             .catch(err => console.log(err));
-    })
+    }
 
-    const onDelete = (id: number) => 
-    {
-        fetch(`api/departments/${id}`, {method: 'DELETE'})
+    const onDelete = (id: number) => {
+        fetch(`api/departments/${id}`, { method: 'DELETE' })
             .then((response) => {
                 if (!response.ok) return;
                 setDepartments(departments.filter((department) => {
@@ -64,14 +64,18 @@ const DepartmentsPage = () => {
             </div>
 
             <div className="flex row-end-auto bg-white rounded-xl p-4 h-fit max-h-full overflow-y-auto">
-                <form onSubmit={onSubmit} className="flex flex-grow flex-col justify-between w-full h-full p-2 space-y-6">
-                    <h4 className="font-semibold text-lg">Добавить отдел</h4>
-                    <div>
-                        <label className="block text-sm font-medium">Название отдела</label>
-                        <input className="bg-gray-100 border rounded block w-full p-2" {...register("name", {required: true})} placeholder="Отдел кадров" required></input>
-                    </div>
-                    <button type="submit" className="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-1 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Добавить</button>
-                </form>
+                <Form onSubmit={onSubmit}>
+                    {({ register }) => (
+                        <>
+                            <h4 className="font-semibold text-lg">Добавить отдел</h4>
+                            <div>
+                                <Label text="Название отдела" />
+                                <Input {...register("name", { required: true })} required />
+                            </div>
+                            <Submit text="Добавить" />
+                        </>
+                    )}
+                </Form>
             </div>
         </div>
     )
