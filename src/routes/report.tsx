@@ -26,26 +26,26 @@ const ReportPage = () => {
         <div className="w-full h-full grid grid-cols-4 grid-rows-1 gap-4 p-4 bg-gray-200 rounded-xl">
             <div className="block p-4 col-span-3 row-end-auto bg-white rounded-xl overflow-y-auto">
                 <table className="w-full text-sm text-left rounded bg-gray-100">
-                    <thead className="text-base capitalize bg-gray-50 rounded-xl">
+                    <thead className="text-sm bg-gray-50 rounded-xl">
                         <tr>
-                            <th scope="col" className="py-3 px-6">Название отдела</th>
-                            <th scope="col" className="py-3 px-6">Дата начала месяца</th>
-                            <th scope="col" className="py-3 px-6">Дата конца месяца</th>
-                            <th scope="col" className="py-3 px-6">ФОТ отдела</th>
+                            <th scope="col" className="py-3 px-4">Название отдела</th>
+                            <th scope="col" className="py-3 px-4">Дата начала месяца</th>
+                            <th scope="col" className="py-3 px-4">Дата конца месяца</th>
+                            <th scope="col" className="py-3 px-4">ФОТ отдела</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {report?.months.map((repMonth: IReportMonth) => (
-                            repMonth.departments.map((repDepartment: IReportDepartment) => (
-                                <tr key={`m-${repMonth.start}-d-${repDepartment.department.id}`}>
-                                    <td className="py-4 px-6">{repDepartment.department.name}</td>
-                                    <td className="py-4 px-6">{repMonth.start}</td>
-                                    <td className="py-4 px-6">{repMonth.end}</td>
-                                    <td className="py-4 px-6">{repDepartment.monthTotal}</td>
+                    {report?.months.map((repMonth: IReportMonth) => (
+                        <tbody key={`m-${repMonth.start}`} className="border-b-2">
+                            {repMonth.departments.map((repDepartment: IReportDepartment) => (
+                                <tr key={`d-${repDepartment.department.id}`} className="w-full border-b">
+                                    <td className="py-4 px-4">{repDepartment.department.name}</td>
+                                    <td className="py-4 px-4">{repMonth.start}</td>
+                                    <td className="py-4 px-4">{repMonth.end}</td>
+                                    <td className="py-4 px-4">{repDepartment.monthTotal}</td>
                                 </tr>
-                            ))
                         ))}
-                    </tbody>
+                        </tbody>
+                    ))}
                 </table>
             </div>
 

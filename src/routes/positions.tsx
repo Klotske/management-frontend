@@ -40,19 +40,19 @@ const PositionsPage = () => {
         <div className="w-full h-full grid grid-cols-4 grid-rows-1 gap-4 p-4 bg-gray-200 rounded-xl">
             <div className="block p-4 col-span-3 row-end-auto bg-white rounded-xl overflow-y-auto">
                 <table className="w-full text-sm text-left rounded bg-gray-100">
-                    <thead className="text-base capitalize bg-gray-50 rounded-xl">
+                    <thead className="text-sm bg-gray-50 rounded-xl">
                         <tr>
-                            <th scope="col" className="py-3 px-6">ID</th>
-                            <th scope="col" className="py-3 px-6">Название позиции</th>
-                            <th scope="col" className="py-3 px-6">Действия</th>
+                            <th scope="col" className="py-3 px-4">ID</th>
+                            <th scope="col" className="py-3 px-4">Название позиции</th>
+                            <th scope="col" className="py-3 px-4">Действия</th>
                         </tr>
                     </thead>
                     <tbody>
                         {positions.map((position: IPosition) => (
-                            <tr key={position.id} className="text-base">
-                                <td className="py-4 px-6">{position.id}</td>
-                                <td className="py-4 px-6">{position.title}</td>
-                                <td className="py-4 px-6">
+                            <tr key={position.id} className="text-base border-b">
+                                <td className="py-4 px-4">{position.id}</td>
+                                <td className="py-4 px-4">{position.title}</td>
+                                <td className="py-4 px-4">
                                     <button onClick={() => onDelete(position.id)} className="font-medium text-red-600 hover:underline">
                                         Удалить
                                     </button>

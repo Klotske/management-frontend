@@ -73,23 +73,23 @@ const SchedulesPage = () => {
         <div className="w-full h-full grid grid-cols-4 grid-rows-1 gap-4 p-4 bg-gray-200 rounded-xl">
             <div className="block p-4 col-span-3 row-end-auto bg-white rounded-xl overflow-y-auto">
                 <table className="w-full text-sm text-left rounded bg-gray-100">
-                    <thead className="text-base capitalize bg-gray-50 rounded-xl">
+                    <thead className="text-sm bg-gray-50 rounded-xl">
                         <tr>
-                            <th scope="col" className="py-3 px-6">Название отдела</th>
-                            <th scope="col" className="py-3 px-6">Название должности</th>
-                            <th scope="col" className="py-3 px-6">Дата начала действия</th>
-                            <th scope="col" className="py-3 px-6">Кол-во</th>
-                            <th scope="col" className="py-3 px-6">Действия</th>
+                            <th scope="col" className="py-3 px-4">Название отдела</th>
+                            <th scope="col" className="py-3 px-4">Название должности</th>
+                            <th scope="col" className="py-3 px-4">Дата начала действия</th>
+                            <th scope="col" className="py-3 px-4">Кол-во</th>
+                            <th scope="col" className="py-3 px-4">Действия</th>
                         </tr>
                     </thead>
                     <tbody>
                         {schedules.map((schedule: ISchedule) => (
-                            <tr key={schedule.id} className="text-base">
-                                <td className="py-4 px-6">{schedule.department!.name}</td>
-                                <td className="py-4 px-6">{schedule.position!.title}</td>
-                                <td className="py-4 px-6">{schedule.startDate}</td>
-                                <td className="py-4 px-6">{schedule.quantity}</td>
-                                <td className="py-4 px-6">
+                            <tr key={schedule.id} className="text-base border-b">
+                                <td className="py-4 px-4">{schedule.department!.name}</td>
+                                <td className="py-4 px-4">{schedule.position!.title}</td>
+                                <td className="py-4 px-4">{schedule.startDate}</td>
+                                <td className="py-4 px-4">{schedule.quantity}</td>
+                                <td className="py-4 px-4">
                                     <button onClick={() => onDelete(schedule.id)} className="font-medium text-red-600 hover:underline">
                                         Удалить
                                     </button>

@@ -40,19 +40,19 @@ const DepartmentsPage = () => {
         <div className="w-full h-full grid grid-cols-4 grid-rows-1 gap-4 p-4 bg-gray-200 rounded-xl">
             <div className="block p-4 col-span-3 row-end-auto bg-white rounded-xl overflow-y-auto">
                 <table className="w-full text-sm text-left rounded bg-gray-100">
-                    <thead className="text-base capitalize bg-gray-50 rounded-xl">
+                    <thead className="text-sm bg-gray-50 rounded-xl">
                         <tr>
-                            <th scope="col" className="py-3 px-6">ID</th>
-                            <th scope="col" className="py-3 px-6">Название отдела</th>
-                            <th scope="col" className="py-3 px-6">Действия</th>
+                            <th scope="col" className="py-3 px-4">ID</th>
+                            <th scope="col" className="py-3 px-4">Название отдела</th>
+                            <th scope="col" className="py-3 px-4">Действия</th>
                         </tr>
                     </thead>
                     <tbody>
                         {departments.map((department: IDepartment) => (
-                            <tr key={department.id} className="text-base">
-                                <td className="py-4 px-6">{department.id}</td>
-                                <td className="py-4 px-6">{department.name}</td>
-                                <td className="py-4 px-6">
+                            <tr key={department.id} className="text-base border-b">
+                                <td className="py-4 px-4">{department.id}</td>
+                                <td className="py-4 px-4">{department.name}</td>
+                                <td className="py-4 px-4">
                                     <button onClick={() => onDelete(department.id)} className="font-medium text-red-600 hover:underline">
                                         Удалить
                                     </button>
