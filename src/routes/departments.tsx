@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { Form, Input, Label, Submit } from "../components/form";
 import { IDepartment } from "../models";
 
@@ -9,7 +8,6 @@ interface DepartmentInput {
 
 const DepartmentsPage = () => {
     const [departments, setDepartments] = useState<IDepartment[]>([]);
-    const { register, handleSubmit } = useForm<DepartmentInput>()
 
     const onSubmit = (data: DepartmentInput) => {
         fetch('api/departments', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { Form, Input, Label, Select, Submit } from "../components/form";
 import { IPosition, IDepartment, ISchedule } from "../models";
 
@@ -15,8 +14,6 @@ const SchedulesPage = () => {
 
     const [departments, setDepartments] = useState<IDepartment[]>([]);
     const [positions, setPositions] = useState<IPosition[]>([]);
-
-    const { register, handleSubmit } = useForm<ScheduleInput>()
 
     const onSubmit = (data: ScheduleInput) => {
         fetch('api/schedules', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { Form, Input, Label, Select, Submit } from "../components/form";
 import { IPosition, IRate } from "../models";
 
@@ -12,8 +11,6 @@ interface RateInput {
 const RatesPage = () => {
     const [rates, setRates] = useState<IRate[]>([]);
     const [positions, setPositions] = useState<IPosition[]>([]);
-
-    const { register, handleSubmit } = useForm<RateInput>()
 
     const onSubmit = (data: RateInput) => {
         fetch('api/rates', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })

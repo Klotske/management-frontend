@@ -11,8 +11,6 @@ interface ReportInput {
 const ReportPage = () => {
     const [report, setReport] = useState<IReport | null>(null);
 
-    const { register, handleSubmit } = useForm<ReportInput>()
-
     const onSubmit = (data: ReportInput) => {
         fetch(`api/report?startDate=${data.startDate}&endDate=${data.endDate}`)
             .then((response) => {

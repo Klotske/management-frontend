@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { Form, Input, Label, Submit } from "../components/form";
 import { IPosition } from "../models";
 
@@ -9,7 +8,6 @@ interface PositionInput {
 
 const PositionsPage = () => {
     const [positions, setPositions] = useState<IPosition[]>([]);
-    const { register, handleSubmit } = useForm<PositionInput>()
 
     const onSubmit = (data: PositionInput) => {
         fetch('api/positions', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
