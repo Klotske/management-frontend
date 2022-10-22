@@ -101,7 +101,7 @@ const RatesPage = () => {
                             </div>
                             <div>
                                 <Label text="Ставка в месяц" />
-                                <Input type="number" {...register("amount", { required: true })} required />
+                                <Input placeholder="10000" type="number" {...register("amount", { required: true })} required />
                             </div>
                             <Submit text="Добавить" />
                         </>

@@ -119,7 +119,7 @@ const SchedulesPage = () => {
                             </div>
                             <div>
                                 <Label text="Кол-во сотрудников" />
-                                <Input type="number" {...register("quantity", { required: true })} required />
+                                <Input placeholder="10" type="number" {...register("quantity", { required: true })} required />
                             </div>
                             <Submit text="Добавить" />
                         </>

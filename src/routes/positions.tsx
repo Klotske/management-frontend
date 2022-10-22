@@ -68,7 +68,7 @@ const PositionsPage = () => {
                             <h4 className="font-semibold text-lg">Добавить должность</h4>
                             <div>
                                 <Label text="Название позиции" />
-                                <Input {...register("title", { required: true })} required />
+                                <Input placeholder="Программист" {...register("title", { required: true })} required />
                             </div>
                             <Submit text="Добавить" />
                         </>

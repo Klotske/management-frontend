@@ -2,7 +2,7 @@ import React from "react";
 import { FieldValues, SubmitHandler, useForm, UseFormReturn, UseFormRegisterReturn } from "react-hook-form";
 
 // Input component
-type InputProps = Partial<UseFormRegisterReturn> & { type?: string }
+type InputProps = Partial<UseFormRegisterReturn> & { type?: string, placeholder?: string }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     return <input className="bg-gray-100 border rounded block w-full p-2"
@@ -21,7 +21,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>((props, ref) => 
     return <select className="bg-gray-100 border rounded block w-full p-2"
         {...props}>
         {props.options.map(({ label, value }) => (
-            <option value={value}>{label}</option>
+            <option key={value.toString()} value={value}>{label}</option>
         ))}
     </select>
 })

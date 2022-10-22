@@ -68,7 +68,7 @@ const DepartmentsPage = () => {
                             <h4 className="font-semibold text-lg">Добавить отдел</h4>
                             <div>
                                 <Label text="Название отдела" />
-                                <Input {...register("name", { required: true })} required />
+                                <Input placeholder="Отдел кадров" {...register("name", { required: true })} required />
                             </div>
                             <Submit text="Добавить" />
                         </>
